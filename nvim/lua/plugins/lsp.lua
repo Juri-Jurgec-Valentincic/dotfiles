@@ -37,6 +37,8 @@ return {
 				"clangd",
 				"cpplint",
 				"prettier",
+				"python-lsp-server",
+				"html-lsp",
 			},
 			auto_update = true,
 		})
@@ -77,6 +79,19 @@ return {
 			},
 		}))
 		require("lspconfig").clangd.setup(coq.lsp_ensure_capabilities())
+		require("lspconfig").pylsp.setup(coq.lsp_ensure_capabilities({
+			settings = {
+				pylsp = {
+					plugins = {
+						pycodestyle = {
+							ignore = { "W391" },
+							maxLineLength = 100,
+						},
+					},
+				},
+			},
+		}))
+		require("lspconfig").html.setup(coq.lsp_ensure_capabilities())
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),

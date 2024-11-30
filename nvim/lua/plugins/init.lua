@@ -3,7 +3,7 @@ return {
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
-		opts = { check_ts = true },
+		opts = { check_ts = true, map_bs = false, map_cr = false },
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
