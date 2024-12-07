@@ -39,6 +39,8 @@ return {
 				"prettier",
 				"python-lsp-server",
 				"html-lsp",
+				"checkmake",
+				"cmakelint",
 			},
 			auto_update = true,
 		})
