@@ -58,4 +58,5 @@ return {
 		opts = {},
 	},
 	{ "tpope/vim-fugitive" },
+	{ "tpope/vim-surround" },
 }
