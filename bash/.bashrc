@@ -87,6 +87,8 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+export PAGER=less
+
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
