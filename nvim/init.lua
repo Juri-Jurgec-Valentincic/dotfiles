@@ -37,9 +37,10 @@ MUtils.BS = function()
 	end
 end
 remap("i", "<bs>", "v:lua.MUtils.BS()", { expr = true, noremap = true })
+-- end of making autopairs play nice with coq
 
 require("conform").formatters.djlint = {
-	prepend_args = { "--indent 2 --format-css --format-js --indent-js 2 --profile 'jinja' " },
+	prepend_args = { "--indent", "2", "--format-css", "--format-js", "--indent-js", "2", "--profile", "'jinja'" },
 }
 
 require("lint").linters.djlint.args = {
@@ -51,3 +52,5 @@ require("lint").linters.djlint.args = {
 		"-",
 	},
 }
+
+require("Comment.ft").jinja = "<!--%s-->"

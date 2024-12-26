@@ -16,18 +16,18 @@ return {
 			vim.cmd("colorscheme gruvbox")
 		end,
 	},
-	{ --
+	{
 		"numToStr/Comment.nvim",
 		opts = {},
-		{
-			"akinsho/bufferline.nvim",
-			version = "*",
-			dependencies = "nvim-tree/nvim-web-devicons",
-			opts = {
-				options = {
-					mode = "tabs",
-					separator_style = "slant",
-				},
+	},
+	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		opts = {
+			options = {
+				mode = "tabs",
+				separator_style = "slant",
 			},
 		},
 	},
