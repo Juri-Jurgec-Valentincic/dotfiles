@@ -16,6 +16,7 @@ return {
 			yaml = { "prettier" },
 			sql = { "sqlfluff" },
 			jinja = { "djlint" },
+			scss = { "prettier" },
 		},
 		format_on_save = {
 			-- These options will be passed to conform.format()

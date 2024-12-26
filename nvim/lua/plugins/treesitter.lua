@@ -54,7 +54,6 @@ return {
 					"yaml",
 					"toml",
 					"scss",
-					"sass",
 				},
 				sync_install = false,
 				auto_install = false,
