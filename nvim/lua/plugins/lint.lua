@@ -8,6 +8,7 @@ return {
 			make = { "checkmake" },
 			cmake = { "cmakelint" },
 			sql = { "sqlfluff" },
+			jinja = { "djlint" },
 		}
 		vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 			callback = function()

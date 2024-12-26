@@ -37,3 +37,17 @@ MUtils.BS = function()
 	end
 end
 remap("i", "<bs>", "v:lua.MUtils.BS()", { expr = true, noremap = true })
+
+require("conform").formatters.djlint = {
+	prepend_args = { "--indent 2 --format-css --format-js --indent-js 2 --profile 'jinja' " },
+}
+
+require("lint").linters.djlint.args = {
+	args = {
+		"--profile",
+		'"jinja"',
+		"--linter-output-format",
+		"{line}:{code}: {message}",
+		"-",
+	},
+}
