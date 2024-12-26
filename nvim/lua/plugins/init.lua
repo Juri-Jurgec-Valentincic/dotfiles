@@ -62,9 +62,7 @@ return {
 	{ "tpope/vim-eunuch" },
 	{ "lepture/vim-jinja" },
 	{
-		"kylechui/nvim-surround",
-		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		"tpope/vim-surround",
 		event = "VeryLazy",
-		opts = {},
 	},
 }

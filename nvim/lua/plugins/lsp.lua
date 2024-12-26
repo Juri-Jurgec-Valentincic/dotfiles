@@ -9,6 +9,7 @@ return {
 		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
 		{ "ms-jpq/coq.thirdparty", branch = "3p" },
 		{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
+		{ "nanotee/sqls.nvim" },
 	},
 	init = function()
 		vim.g.coq_settings = {
@@ -37,10 +38,15 @@ return {
 				"clangd",
 				"cpplint",
 				"prettier",
-				"python-lsp-server",
 				"html-lsp",
 				"checkmake",
 				"cmakelint",
+				"sqlfluff",
+				"pyright",
+				"typescript-language-server",
+				"css-lsp",
+				"jinja-lsp",
+				"djlint",
 			},
 			auto_update = true,
 		})
@@ -81,19 +87,26 @@ return {
 			},
 		}))
 		require("lspconfig").clangd.setup(coq.lsp_ensure_capabilities())
-		require("lspconfig").pylsp.setup(coq.lsp_ensure_capabilities({
+		require("lspconfig").pyright.setup(coq.lsp_ensure_capabilities())
+		require("lspconfig").html.setup(coq.lsp_ensure_capabilities())
+		require("lspconfig").ts_ls.setup(coq.lsp_ensure_capabilities())
+		require("lspconfig").cssls.setup(coq.lsp_ensure_capabilities())
+		require("lspconfig").jinja_lsp.setup(coq.lsp_ensure_capabilities())
+		require("lspconfig").sqls.setup(coq.lsp_ensure_capabilities({
+			on_attach = function(client, bufnr)
+				require("sqls").on_attach(client, bufnr) -- require sqls.nvim
+			end,
 			settings = {
-				pylsp = {
-					plugins = {
-						pycodestyle = {
-							ignore = { "W391" },
-							maxLineLength = 100,
+				sqls = {
+					connections = {
+						{
+							driver = "postgresql",
+							dataSourceName = "host=127.0.0.1 port=5432 user=postgres password=postgres dbname=flask_app sslmode=disable",
 						},
 					},
 				},
 			},
 		}))
-		require("lspconfig").html.setup(coq.lsp_ensure_capabilities())
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),

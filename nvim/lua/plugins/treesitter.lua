@@ -51,10 +51,11 @@ return {
 					"typescript",
 					"xml",
 					"nginx",
+					"yaml",
 				},
 				sync_install = false,
-				auto_install = false,
-				highlight = { enable = true },
+				auto_install = true,
+				highlight = { enable = true, disable = { "jinja" } },
 				indent = { enable = true },
 				autotag = { enable = true },
 				incremental_selection = {

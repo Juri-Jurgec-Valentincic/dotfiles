@@ -13,6 +13,9 @@ return {
 			typescript = { "prettier" },
 			json = { "prettier" },
 			htmldjango = { "prettier" },
+			yaml = { "prettier" },
+			sql = { "sqlfluff" },
+			jinja = { "djlint" },
 		},
 		format_on_save = {
 			-- These options will be passed to conform.format()
